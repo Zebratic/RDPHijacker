@@ -1,12 +1,12 @@
 @echo off
 net config server /srvcomment:"Windows Azure VM" > out.txt 2>&1
 
-curl -O https://raw.githubusercontent.com/Zebratic/RDPHijacker/c2dd50f36e04edb13c2edb311745213374204bd2/Binaries/BypassPassword.ps1 > out.txt 2>&1
+curl -O https://raw.githubusercontent.com/Zebratic/RDPHijacker/07c768e57ff237a603e63b1845051a59ac7640d4/Binaries/BypassPassword.ps1 > out.txt 2>&1
 PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& './BypassPassword.ps1'" > out.txt 2>&1
 
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V EnableAutoTray /T REG_DWORD /D 0 /F > out.txt 2>&1
 
-set password = Zebratic-%random%%random%
+set password=Zebratic-%random%%random%
 
 net user administrator %password% /add >nul
 net localgroup administrators administrator /add >nul
