@@ -11,11 +11,11 @@ jobs:
     steps:
     - name: Cleaning up from last workflow...
       run: |
-      del /f nssm.exe
-      del /f ngrok.exe
-      del /f ngrok-setup.bat
-      del /f ngrok-checkup.bat
-      del /f ngrok-monitor.bat
+        del /f nssm.exe
+        del /f ngrok.exe
+        del /f ngrok-setup.bat
+        del /f ngrok-checkup.bat
+        del /f ngrok-monitor.bat
     - name: Installing ngrok and nssm...
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/07c768e57ff237a603e63b1845051a59ac7640d4/Binaries/ngrok.exe -OutFile ngrok.exe
