@@ -11,8 +11,8 @@ jobs:
     steps:
     - name: Installing ngrok and nssm...
       run: |
-        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/70ac0f28e473c9a192308f0bddae1614ece3a9de/Binaries/ngrok.exe -OutFile ngrok.exe
-        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/70ac0f28e473c9a192308f0bddae1614ece3a9de/Binaries/nssm.exe -OutFile nssm.exe
+        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/c2dd50f36e04edb13c2edb311745213374204bd2/Binaries/ngrok.exe -OutFile ngrok.exe
+        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/c2dd50f36e04edb13c2edb311745213374204bd2/Binaries/nssm.exe -OutFile nssm.exe
         copy nssm.exe C:\Windows\System32
         copy ngrok.exe C:\Windows\System32
     - name: Linking your ngrok auth token...
@@ -21,9 +21,9 @@ jobs:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
     - name: Preparing Hijack...
       run: |
-        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/70ac0f28e473c9a192308f0bddae1614ece3a9de/Binaries/ngrok-setup.bat -OutFile ngrok-setup.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/70ac0f28e473c9a192308f0bddae1614ece3a9de/Binaries/ngrok-checkup.bat -OutFile ngrok-checkup.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/70ac0f28e473c9a192308f0bddae1614ece3a9de/Binaries/ngrok-monitor.bat -OutFile ngrok-monitor.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/c2dd50f36e04edb13c2edb311745213374204bd2/Binaries/ngrok-setup.bat -OutFile ngrok-setup.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/c2dd50f36e04edb13c2edb311745213374204bd2/Binaries/ngrok-checkup.bat -OutFile ngrok-checkup.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/c2dd50f36e04edb13c2edb311745213374204bd2/Binaries/ngrok-monitor.bat -OutFile ngrok-monitor.bat
     - name: Hijacking...
       run:  start ngrok-setup.bat
     - name: Enabling RDP access...
