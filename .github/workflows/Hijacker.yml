@@ -11,12 +11,12 @@ jobs:
     steps:
     - name: Cleaning up from last workflow...
       run: |
-        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/07c768e57ff237a603e63b1845051a59ac7640d4/Binaries/cleanup.bat -OutFile cleanup.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/main/Binaries/cleanup.bat -OutFile cleanup.bat
         start cleanup.bat
     - name: Installing ngrok and nssm...
       run: |
-        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/07c768e57ff237a603e63b1845051a59ac7640d4/Binaries/ngrok.exe -OutFile ngrok.exe
-        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/07c768e57ff237a603e63b1845051a59ac7640d4/Binaries/nssm.exe -OutFile nssm.exe
+        Invoke-WebRequest https://github.com/Zebratic/RDPHijacker/blob/main/Binaries/ngrok.exe?raw=true -OutFile ngrok.exe
+        Invoke-WebRequest https://github.com/Zebratic/RDPHijacker/blob/main/Binaries/nssm.exe?raw=true -OutFile nssm.exe
         copy nssm.exe C:\Windows\System32
         copy ngrok.exe C:\Windows\System32
     - name: Linking your ngrok auth token...
@@ -25,9 +25,9 @@ jobs:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
     - name: Preparing Hijack...
       run: |
-        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/07c768e57ff237a603e63b1845051a59ac7640d4/Binaries/ngrok-setup.bat -OutFile ngrok-setup.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/07c768e57ff237a603e63b1845051a59ac7640d4/Binaries/ngrok-checkup.bat -OutFile ngrok-checkup.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/07c768e57ff237a603e63b1845051a59ac7640d4/Binaries/ngrok-monitor.bat -OutFile ngrok-monitor.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/main/Binaries/ngrok-setup.bat -OutFile ngrok-setup.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/main/Binaries/ngrok-checkup.bat -OutFile ngrok-checkup.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/Zebratic/RDPHijacker/main/Binaries/ngrok-monitor.bat -OutFile ngrok-monitor.bat
     - name: Hijacking...
       run:  start ngrok-setup.bat
     - name: Enabling RDP access...
